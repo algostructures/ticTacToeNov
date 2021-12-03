@@ -11,7 +11,6 @@ public class RandomMoveStrategy implements IAutomaticMoveStrategy {
             int row = getRandomNumberInRange(0, board.getRows());
             int col = getRandomNumberInRange(0, board.getCols());
             if(board.getCell(row, col) != null) {
-                board.getCell(row, col).setSymbol(player.getSymbol());
                 return new Move(row, col);
             }
         }

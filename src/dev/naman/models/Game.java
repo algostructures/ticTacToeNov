@@ -13,6 +13,7 @@ public class Game {
     private List<Player> players = new ArrayList<>();
     private Board board;
     private List<IWinningStrategy> winningStrategies = new ArrayList<>();
+    private int currentPlayerIndex = 0;
 
     public List<Player> getPlayers() {
         return players;
@@ -24,6 +25,40 @@ public class Game {
 
     public void printBoard() {
         board.printBoard();
+    }
+
+    public void run() {
+        int totalTurns = board.getRows() * board.getCols();
+        int turns = 0;
+
+        while(turns < totalTurns) {
+            printBoard();
+            Player currentPlayer = getCurrentPlayer();
+            System.out.println("Player "+currentPlayer.symbol+"'s turn");
+            currentPlayer.makeMove(board);
+            for (IWinningStrategy winningStrategy: winningStrategies) {
+                Player winner = winningStrategy.checkWinner(board, players);
+                if(winner != null) {
+                    printBoard();
+                    System.out.println("winner is"+ winner);
+                    break;
+                }
+            }
+            updateCurrentPlayer();
+            turns++;
+        }
+    }
+
+    private void updateCurrentPlayer() {
+        if (currentPlayerIndex < players.size()) {
+            currentPlayerIndex++;
+        } else {
+            currentPlayerIndex = 0;
+        }
+    }
+
+    private Player getCurrentPlayer() {
+        return players.get(currentPlayerIndex);
     }
 
 

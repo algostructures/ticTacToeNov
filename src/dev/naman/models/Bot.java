@@ -2,7 +2,6 @@ package dev.naman.models;
 
 import dev.naman.strategies.automove.IAutomaticMoveStrategy;
 
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Bot extends Player {
     private IAutomaticMoveStrategy automaticMoveStrategy;
