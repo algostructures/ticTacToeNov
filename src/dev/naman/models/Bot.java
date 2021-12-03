@@ -2,11 +2,18 @@ package dev.naman.models;
 
 import dev.naman.strategies.automove.IAutomaticMoveStrategy;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Bot extends Player {
     private IAutomaticMoveStrategy automaticMoveStrategy;
 
     public static Builder getBuilder() {
         return new Builder();
+    }
+
+    @Override
+    public void makeMove(Board board) {
+        automaticMoveStrategy.makeMove(board, this);
     }
 
     public static class Builder {

@@ -6,6 +6,18 @@ import java.util.List;
 public class Board {
     private List<List<Cell>> board;
 
+    public int getRows(){
+        return board.size();
+    }
+
+    public int getCols(){
+        return board.get(0).size();
+    }
+
+    public Cell getCell(int row, int col) {
+        return board.get(row).get(col);
+    }
+
     Board(int rows, int columns) {
         board = new ArrayList<>();
         for (int i = 0; i < rows; ++i) {
@@ -17,12 +29,12 @@ public class Board {
     }
 
     public void printBoard() {
-        for (int i = 0; i < board.size(); ++i) {
-            for (int j = 0; j < board.get(i). size(); ++j) {
-                System.out.printf("%c ", board.get(i).get(j).symbol.getSymbol());
+        for (List<Cell> cells : board) {
+            for (Cell cell : cells) {
+                System.out.printf("%c ", cell.symbol == null ? ' ' : cell.symbol.getSymbol());
             }
         }
-        System.out.printf("\n");
+        System.out.print("\n");
     }
 }
 

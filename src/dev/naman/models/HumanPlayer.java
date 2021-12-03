@@ -7,6 +7,11 @@ public class HumanPlayer extends Player {
         return new Builder();
     }
 
+    @Override
+    public void makeMove(Board board) {
+
+    }
+
     public static class Builder {
         private HumanPlayer humanPlayer;
 
