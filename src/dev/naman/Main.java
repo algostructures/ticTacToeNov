@@ -4,7 +4,9 @@ import dev.naman.controllers.GameController;
 import dev.naman.factories.PlayerFactory;
 import dev.naman.models.*;
 import dev.naman.strategies.automove.RandomMoveStrategy;
+import dev.naman.strategies.winning.ColumnWinningStrategy;
 import dev.naman.strategies.winning.DefaultWinningStrategy;
+import dev.naman.strategies.winning.RowWinningStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +28,8 @@ public class Main {
                                 .setSymbol('X')
                                 .build()
                 )
-                .addWinningStrategy(new DefaultWinningStrategy())
+                .addWinningStrategy(new RowWinningStrategy())
+                .addWinningStrategy(new ColumnWinningStrategy())
                 .setRows(3)
                 .setColumns(3)
                 .build();

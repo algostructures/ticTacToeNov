@@ -3,7 +3,7 @@ package dev.naman.models;
 import java.util.Scanner;
 
 public class HumanPlayer extends Player {
-    User user;
+    private User user;
 
     public static Builder getBuilder() {
         return new Builder();
