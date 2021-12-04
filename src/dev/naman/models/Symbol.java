@@ -3,7 +3,7 @@ package dev.naman.models;
 public class Symbol {
     private char symbol;
 
-    Symbol(char symbol) {
+    public Symbol(char symbol) {
         this.symbol = symbol;
     }
 

@@ -31,7 +31,7 @@ public class Game {
         int totalTurns = board.getRows() * board.getCols();
         int turns = 0;
 
-        while(turns < totalTurns) {
+        F: while(turns < totalTurns) {
             printBoard();
             Player currentPlayer = getCurrentPlayer();
             System.out.println("Player "+currentPlayer.symbol+"'s turn");
@@ -41,7 +41,7 @@ public class Game {
                 if(winner != null) {
                     printBoard();
                     System.out.println("winner is"+ winner);
-                    break;
+                    break F;
                 }
             }
             updateCurrentPlayer();
@@ -50,7 +50,7 @@ public class Game {
     }
 
     private void updateCurrentPlayer() {
-        if (currentPlayerIndex < players.size()) {
+        if (currentPlayerIndex < players.size()-1) {
             currentPlayerIndex++;
         } else {
             currentPlayerIndex = 0;

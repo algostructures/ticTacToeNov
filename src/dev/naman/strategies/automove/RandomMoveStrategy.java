@@ -8,9 +8,10 @@ public class RandomMoveStrategy implements IAutomaticMoveStrategy {
     @Override
     public Move makeMove(Board board, Player player) {
         while(true) {
-            int row = getRandomNumberInRange(0, board.getRows());
-            int col = getRandomNumberInRange(0, board.getCols());
-            if(board.getCell(row, col) != null) {
+            int row = getRandomNumberInRange(0, board.getRows()-1);
+            int col = getRandomNumberInRange(0, board.getCols()-1);
+            if(board.getCell(row, col).getSymbol() == null) {
+                board.getCell(row, col).setSymbol(new Symbol(player.getSymbol().getSymbol()));
                 return new Move(row, col);
             }
         }

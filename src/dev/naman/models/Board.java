@@ -31,10 +31,11 @@ public class Board {
     public void printBoard() {
         for (List<Cell> cells : board) {
             for (Cell cell : cells) {
-                System.out.printf("%c ", cell.symbol == null ? ' ' : cell.symbol.getSymbol());
+                System.out.printf("|%c |", cell.symbol == null ? ' ' : cell.symbol.getSymbol());
             }
+            System.out.print("\n");
         }
-        System.out.print("\n");
+
     }
 }
 

@@ -1,5 +1,7 @@
 package dev.naman.models;
 
+import java.util.Scanner;
+
 public class HumanPlayer extends Player {
     User user;
 
@@ -9,7 +11,11 @@ public class HumanPlayer extends Player {
 
     @Override
     public void makeMove(Board board) {
-        
+        System.out.println("Enter Row And Col, Stupid Human");
+        Scanner sc = new Scanner(System.in);
+        int row = sc.nextInt();
+        int col = sc.nextInt();
+        board.getCell(row, col).setSymbol(new Symbol(this.getSymbol().getSymbol()));
     }
 
     public static class Builder {
